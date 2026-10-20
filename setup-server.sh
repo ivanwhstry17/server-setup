@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 #  setup-server.sh — Provisioning & hardening Ubuntu Server 22.04+
-#  PT Roemah Toedjoeh Indonesia
+#  ADIYA GROUP
 #
 #  Cara pakai (JANGAN pakai "wget ... | bash", karena pop-up butuh keyboard):
 #    wget -qO setup-server.sh <URL> && sudo bash setup-server.sh
@@ -127,7 +127,7 @@ valid_hostname() { [[ $1 =~ ^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$ ]]; }
 # ------------------------------ Dialog whiptail ------------------------------
 # Semua dialog langsung ke /dev/tty, sehingga tetap tampil walau output di-log.
 wt() {
-  whiptail --backtitle "Server Setup v${SCRIPT_VERSION} - PT Roemah Toedjoeh Indonesia" "$@" \
+  whiptail --backtitle "Server Setup v${SCRIPT_VERSION} - ADIYA GROUP" "$@" \
     3>&1 1>/dev/tty 2>&3 </dev/tty
 }
 cancel_exit() { clear >/dev/tty 2>&1 || true; die "Dibatalkan oleh pengguna. Belum ada perubahan pada sistem."; }
@@ -306,12 +306,12 @@ Contoh: 192.168.10.1, 1.1.1.1, 8.8.8.8" "${x:-1.1.1.1, 8.8.8.8}")
     x=$(awk '/^search /{ $1=""; sub(/^ /,""); print; exit }' /etc/resolv.conf 2>/dev/null | tr ' ' ',' || true)
     raw=$(input "Search domain" "Search domain (dipakai untuk netplan dan FQDN di /etc/hosts).
 Bisa lebih dari satu, pisahkan dengan koma. Domain pertama dipakai untuk FQDN.
-Contoh: roemah7.local" "${x:-}")
+Contoh: adiya.local" "${x:-}")
     mapfile -t SEARCH_DOMAINS < <(split_list "${raw,,}")
     ok=1; (( ${#SEARCH_DOMAINS[@]} )) || ok=0
     for x in "${SEARCH_DOMAINS[@]}"; do valid_domain "$x" || ok=0; done
     [[ $ok -eq 1 ]] && break
-    msg "Format salah" "Search domain tidak valid. Contoh: roemah7.local" 8
+    msg "Format salah" "Search domain tidak valid. Contoh: adiya.local" 8
   done
 
   # --- Hostname ---
