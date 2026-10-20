@@ -1,0 +1,2 @@
+# Paksa line ending Linux (LF) agar script tidak rusak walau diedit di Windows
+*.sh text eol=lf
