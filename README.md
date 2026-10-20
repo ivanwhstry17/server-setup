@@ -1,6 +1,6 @@
 # server-setup
 
-Script provisioning & hardening Ubuntu Server 22.04+ — PT Roemah Toedjoeh Indonesia.
+Script provisioning & hardening Ubuntu Server 22.04+ — ADIYA GROUP
 
 ## Cara pakai
 
